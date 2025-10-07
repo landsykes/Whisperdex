@@ -1,0 +1,175 @@
+body {
+	//background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(66, 50, 50, 1) 59%);
+	font-family: "REM", sans-serif;
+	color:white;
+	background: #1c1717;
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.logo {
+	display:block;
+	margin:auto;
+	max-width: 450px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+#collectionContainer {
+    padding-bottom: 100px;
+}
+
+.cardK9s {
+	width: 190px;
+	border-radius: 3px;
+	text-align: center;
+	padding-bottom: 20px;
+	display: inline-block;
+	flex: 1 1 calc(20% - 20px);
+  	min-width: 150px;
+}
+
+.collectionline[data-rarity="Secret"] .cardK9s {
+	border: 1px solid #fbcd00;
+	background: linear-gradient(#cbab1c, #e57600);
+}
+
+.collectionline[data-rarity="SSR"] .cardK9s {
+	border: 1px solid #ff702f;
+	background: linear-gradient(#e76800, #a93000);
+}
+
+.collectionline[data-rarity="Event"] .cardK9s {
+	border: 1px solid #e52f2f;
+	background: linear-gradient(#cb1c1c, #890000);
+}
+
+.collectionline[data-rarity="SR"] .cardK9s {
+	border: 1px solid #ad2fff;
+	background: linear-gradient(#a100e7, #5200a9);
+}
+
+.collectionline[data-rarity="Rare"] .cardK9s {
+	border: 1px solid #2fbeff;
+	background: linear-gradient(#00bfe7, #2807d1);
+}
+
+.collectionline[data-rarity="Common"] .cardK9s {
+	border: 1px solid #fff;
+	background: linear-gradient(#d9c3c3, #795d5d);
+}
+
+.cardK9s.dontown {
+	border: 1px solid #797979 !important;
+	background: #1a1a1a !important;
+}
+
+.K9sSpecie {
+	font-family: "Cherry Bomb One", system-ui;
+	font-size: 18px;
+}
+
+.progress {
+	font-size: 13px;
+}
+
+.collectionline {
+	max-width: 1200px;
+	margin:auto;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    border-top: 1px dashed gray;
+    padding-bottom: 50px;
+}
+
+.titleSection {
+	font-family: "Cherry Bomb One", system-ui;
+	font-size: 32px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	width:100%;
+}
+
+.profileCard {
+    display: flex;
+    align-items: center;
+    background: #151414;
+    border: 2px solid #f0b400;
+    border-radius: 16px;
+    padding: 10px 20px;
+    margin: 20px auto;
+    margin-bottom: 50px;
+    max-width: 400px;
+    color: white;
+    box-shadow: 0 0 15px rgb(254 208 0 / 22%);
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #f0b400;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.profileInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profileName {
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 2px;
+  font-family: "Cherry Bomb One", system-ui;
+  text-transform: uppercase;
+  color: #d70000;
+}
+
+.profileStats p {
+  margin: 2px 0;
+  font-size: 0.9em;
+}
+
+
+@media screen and (max-width:450px){
+	.logo {
+		display:block;
+		margin:auto;
+		max-width: 300px;
+		margin-top: 50px;
+		margin-bottom: 50px;
+	}
+
+	.collectionline {
+	    max-width: 95%;
+	    margin: auto;
+	    position: relative;
+	    display: flex;
+	    flex-wrap: wrap;
+	    justify-content: flex-start;
+	    gap: 10px;
+	}
+
+	.profileName {
+	    font-size: 18px;
+	}
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>K9sGacha Collection</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+  <img class="logo" src="images/logogacha.png"/>
+  <div id="collectionContainer"></div>
+
+  <script type="module">
+  import { app } from './firebase.js';
+  import { k9sList } from './k9slist.js';
+  import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-database.js";
+
+  const db = getDatabase(app);
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const username = urlParams.get('username');
+  const container = document.getElementById("collectionContainer");
+
+  async function loadCollection(usernameInput) {
+    const playersRef = ref(db, 'players');
+    const snapshot = await get(playersRef);
+
+    if (!snapshot.exists()) {
+      container.innerHTML = `<p>No players found.</p>`;
+      return;
+    }
+
+    const allPlayers = snapshot.val();
+    const playerKey = Object.keys(allPlayers).find(key => {
+		  const player = allPlayers[key];
+		  // Skip si player ou username undefined
+		  if (!player || !player.username) return false;
+		  return player.username.toLowerCase() === usernameInput.toLowerCase();
+		});
+
+		Object.keys(allPlayers).forEach(key => {
+		  const p = allPlayers[key];
+		  if (!p || !p.username) console.warn('Player missing username:', key, p);
+		});
+
+
+
+    if (!playerKey) {
+      container.innerHTML = `<p>User "${usernameInput}" not found.</p>`;
+      return;
+    }
+
+    const player = allPlayers[playerKey];
+    const collection = player.creatures || {};
+
+    // ---- CALCUL DU CLASSEMENT ----
+    const leaderboard = Object.values(allPlayers)
+      .map(p => ({ username: p.username, totalPoints: p.totalPoints || 0 }))
+      .sort((a, b) => b.totalPoints - a.totalPoints);
+
+    const ranking = leaderboard.findIndex(p => p.username === player.username) + 1;
+
+    // ---- STATS GLOBALES ----
+    const totalAvailable = k9sList.length;
+    const totalOwned = Object.keys(collection).length;
+    const totalPoints = player.pointsTotal || 0;
+    const avatarUrl = player.avatar || 'images/defaultavatar.png';
+
+    // ---- CARTE PROFIL ----
+    const profileCard = document.createElement('div');
+    profileCard.className = 'profileCard';
+    profileCard.innerHTML = `
+      <img class="profileAvatar" src="${avatarUrl}" alt="${player.username}">
+      <div class="profileInfo">
+        <div class="profileName">${player.username}</div>
+        <div class="profileStats">
+          <p><b>Collection:</b> ${totalOwned} / ${totalAvailable}</p>
+          <p><b>Points:</b> ${totalPoints}</p>
+          <p><b>Rank:</b> #${ranking}</p>
+        </div>
+      </div>
+    `;
+    container.appendChild(profileCard);
+
+    // ---- COLLECTION PAR RARETÉ ----
+    const rarityTypes = ["Secret", "Event", "SSR", "SR", "Rare", "Common"];
+
+    rarityTypes.forEach(rarity => {
+      const lineDiv = document.createElement('div');
+      lineDiv.className = 'collectionline';
+      lineDiv.dataset.rarity = rarity;
+
+      // Nombre possédé / total
+      const ownedCount = k9sList.filter(k =>
+        k.rarity === rarity &&
+        Object.keys(collection).some(c => c.toLowerCase() === k.name.toLowerCase())
+      ).length;
+      const totalCount = k9sList.filter(k => k.rarity === rarity).length;
+
+      const title = document.createElement('div');
+      title.className = 'titleSection';
+      title.textContent = `${rarity.toUpperCase()} K9s [${ownedCount}/${totalCount}]`;
+      lineDiv.appendChild(title);
+
+      // Cartes
+      k9sList.filter(k => k.rarity === rarity).forEach(k => {
+        const ownedKey = Object.keys(collection).find(key => key.toLowerCase() === k.name.toLowerCase());
+        const owned = ownedKey ? collection[ownedKey] : null;
+
+        const level = owned ? owned.level : 1;
+        const total = owned ? owned.totalCaptures : 0;
+        const imgSrc = k.image;
+
+        const card = document.createElement('div');
+        card.className = 'cardK9s';
+        if (!owned) card.classList.add('dontown');
+
+        card.innerHTML = owned ? `
+          <img src="${imgSrc}" alt="${k.name}">
+          <div class="K9sSpecie">${k.name}</div>
+          <div class="progress">Lv${level} - ${total} caught</div>
+        ` : `
+          <img src="${imgSrc}" alt="${k.name}" style="filter: brightness(0);">
+          <div class="K9sSpecie">???</div>
+          <div class="progress">You didn't find that K9s yet</div>
+        `;
+
+        lineDiv.appendChild(card);
+      });
+
+      container.appendChild(lineDiv);
+    });
+  }
+
+  if (username) loadCollection(username);
+</script>
+<div class="overlay"></div>
+</body>
+</html>
