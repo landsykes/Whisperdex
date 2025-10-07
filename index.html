@@ -55,15 +55,15 @@
 
     // ---- CALCUL DU CLASSEMENT ----
     const leaderboard = Object.values(allPlayers)
-      .map(p => ({ username: p.username, totalPoints: p.totalPoints || 0 }))
-      .sort((a, b) => b.totalPoints - a.totalPoints);
+      .map(p => ({ username: p.username, pointsTotal: p.pointsTotal || 0 }))
+      .sort((a, b) => b.pointsTotal - a.pointsTotal);
 
     const ranking = leaderboard.findIndex(p => p.username === player.username) + 1;
 
     // ---- STATS GLOBALES ----
     const totalAvailable = k9sList.length;
     const totalOwned = Object.keys(collection).length;
-    const totalPoints = player.pointsTotal || 0;
+    const pointsTotal = player.pointsTotal || 0;
     const avatarUrl = player.avatar || 'images/defaultavatar.png';
 
     // ---- CARTE PROFIL ----
@@ -75,7 +75,7 @@
         <div class="profileName">${player.username}</div>
         <div class="profileStats">
           <p><b>Collection:</b> ${totalOwned} / ${totalAvailable}</p>
-          <p><b>Points:</b> ${totalPoints}</p>
+          <p><b>Points:</b> ${pointsTotal}</p>
           <p><b>Rank:</b> #${ranking}</p>
         </div>
       </div>
