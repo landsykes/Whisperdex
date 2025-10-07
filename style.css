@@ -78,6 +78,13 @@ body {
 	background: #1a1a1a !important;
 }
 
+.dontown img {
+	pointer-events: none;      
+	user-select: none;         
+	-webkit-user-drag: none;    
+	-webkit-touch-callout: none;
+}
+
 .K9sSpecie {
 	font-family: "Cherry Bomb One", system-ui;
 	font-size: 18px;
