@@ -37,7 +37,7 @@ export const k9sList = [
   { name: "K9Mouse", rarity: "SSR", chance: 5, image: "images/_0000s_0018_K9Mousey.png" },
   { name: "K9Smurf", rarity: "Secret", chance: 1, image: "images/_0000s_0008_K9Blue.png" },
   { name: "K9Alien", rarity: "Secret", chance: 1, image: "images/Iconk92_0000s_0007_K9Alien.png" },
-  { name: "K9Fox", rarity: "Secret", chance: 1, image: "images/_0000s_0015_MysteriousK9.png" },
+  { name: "K9Fox", rarity: "Secret", chance: 1, image: "https://landsykes.github.io/Whisperdex/images/_0000s_0015_MysteriousK9.png" },
   { name: "K9Rabbit", rarity: "Secret", chance: 1, image: "images/icon_0000s_0000_K9Rabbit.png" },
   { name: "K9Bubi", rarity: "SSR", chance: 5, image: "images/icon_0000s_0001_K9Bubi.png" },
   { name: "K9Teto", rarity: "SR", chance: 20, image: "images/icon_0000s_0003_K9Teto.png" },
