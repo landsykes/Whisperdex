@@ -119,10 +119,12 @@
           <img src="${imgSrc}" alt="${k.name}">
           <div class="K9sSpecie">${k.name}</div>
           <div class="progress">Lv${level} - ${total} caught</div>
+          <div class="overlay"></div>
         ` : `
           <img src="${imgSrc}" alt="${k.name}" style="filter: brightness(0);">
           <div class="K9sSpecie">???</div>
           <div class="progress">You didn't find that K9s yet</div>
+        	<div class="overlay"></div>
         `;
 
         lineDiv.appendChild(card);
@@ -134,6 +136,5 @@
 
   if (username) loadCollection(username);
 </script>
-<div class="overlay"></div>
 </body>
 </html>

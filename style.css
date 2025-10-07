@@ -40,6 +40,7 @@ body {
 	display: inline-block;
 	flex: 1 1 calc(20% - 20px);
   	min-width: 150px;
+  	position:relative;
 }
 
 .collectionline[data-rarity="Secret"] .cardK9s {
@@ -150,7 +151,7 @@ body {
 }
 
 .overlay {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
