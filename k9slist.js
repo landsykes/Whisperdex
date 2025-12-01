@@ -150,4 +150,7 @@ export const k9sList = [
   { name: "WompWomp9", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/novupd_0000s_0021_Wompwomp9.png" },
   { name: "MoonlightWhisper", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/novupd_0000s_0022_MoonlightWhisper.png" },
   { name: "K9-o'-Lantern", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/novupd_0000s_0023_K9oLantern.png" },
+
+  { name: "Santa Whisp", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/Kwhisper3_453.png" },
+  { name: "Snowhisp", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/Kwhisper3_453_0.png" },
 ];
