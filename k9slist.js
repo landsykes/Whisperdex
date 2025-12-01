@@ -32,7 +32,7 @@ export const k9sList = [
   { name: "ProjektK9", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0030_K9Melody.png" },
   { name: "K9son", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0031_K9son.png" },
   { name: "K9Pomni", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0019_K9Pomni.png" },
-  { name: "Bocchi The K9", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0026_Bocchi-the-K9.png" },
+  { name: "Bocchi_The_K9", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0026_Bocchi-the-K9.png" },
   { name: "PP9Slayer", rarity: "SR", chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0020_PP9Slayer.png" },
   { name: "K9Mouse", rarity: "SSR", chance: 5, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0018_K9Mousey.png" },
   { name: "K9Smurf", rarity: "Secret", chance: 1, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/_0000s_0008_K9Blue.png" },
