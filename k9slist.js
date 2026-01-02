@@ -153,4 +153,5 @@ export const k9sList = [
 
   { name: "Santa_Whisp", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/Kwhisper3_453.png" },
   { name: "Snowhisp", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/Kwhisper3_453_0.png" },
+  { name: "HappyWhispyear", rarity: "Event", isOld: false, chance: 20, image: "https://raw.githubusercontent.com/landsykes/Whisperdex/refs/heads/main/images/Kwhisper3_453_1.png" },
 ];
